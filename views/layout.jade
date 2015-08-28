@@ -9,6 +9,7 @@ html(lang='en')
 		title Ecologico Solar
 		// Bootstrap Core CSS
 		link(href='css/bootstrap.min.css', rel='stylesheet')
+		link(href='css/bootstrap-theme.css', rel='stylesheet')
 		// Custom CSS
 		link(href='css/landing-page.css', rel='stylesheet')
 		// Custom Fonts
@@ -20,12 +21,14 @@ html(lang='en')
 			script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
 			script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
 		link(rel='stylesheet', href='css/my.css')
-		// jQuery
 		script(src='js/jquery.js')
-		// Bootstrap Core JavaScript
 		script(src='js/bootstrap.min.js')
+		
+		
+		script(src='js/jquery.easing.min.js')
+		script(src='js/scroll-nav.js')
 		script(src='js/my.js')
-	body
+	body#top
 		// Navigation
 		nav.navbar.navbar-default.navbar-fixed-top.topnav(role='navigation')
 			.container.topnav
@@ -36,15 +39,15 @@ html(lang='en')
 						span.icon-bar
 						span.icon-bar
 						span.icon-bar
-					a.navbar-brand.topnav(href='#')
+					a.navbar-brand.topnav.page-scroll(href='index.html')
 						img(src='img/LOGO-01.png', alt='')
 				// Collect the nav links, forms, and other content for toggling
 				#bs-example-navbar-collapse-1.collapse.navbar-collapse
 					ul.nav.navbar-nav.navbar-right
 						li
-							a(href='nosotros.html') Nosotros
+							a.page-scroll(href='#nosotros') Nosotros
 						li
-							a(href='#servicios') Servicios
+							a(href='servicios.html') Servicios
 						li
 							a(href='#services') Productos
 						li
@@ -52,7 +55,7 @@ html(lang='en')
 						li
 							a(href='#cotizador') Cotizador
 						li
-							a(href='#contact') Contacto
+							a.page-scroll(href='#contact') Contacto
 				// /.navbar-collapse
 			// /.container
 		block content

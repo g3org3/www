@@ -1,8 +1,3 @@
-
-$(document).ready(function(){
-	$(window).ready(main);
-});
-
 function main() {
 	
 	$('.navbar-default').addClass('navbar-default-big');
@@ -16,29 +11,29 @@ function main() {
 	$(document).scroll(function(){
 		var height = $(window).height();
 		var scrollTop = $(window).scrollTop();
-		console.log(off, desoff)
+		// console.log(off, desoff)
 		if(scrollTop>195){
 			if(!off) {
-				console.log("paso, off")
+				// console.log("paso, off")
 				off = true;
 				desoff = false;
 				$('.navbar-default').animate({
 					height: '50px'
-				}, time+300);
+				}, time);//+300);
 
 				$('.navbar-brand-big img').animate({
 					height: '100px',
 					top: '-38px'
-				}, time);
+				}, time);//);
 
 				$('.navbar-nav-big li a').animate({
 					'font-size': '20px',
 					'line-height': '20px'
-				}, time+200);
+				}, time);//+200);
 			}
 		} else {
 			if(!desoff) {
-				console.log("paso, deoff")
+				// console.log("paso, deoff")
 				desoff = true;
 				off = false;
 
