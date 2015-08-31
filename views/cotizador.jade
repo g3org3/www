@@ -1,0 +1,33 @@
+extend layout
+block content
+	script document.title = "Cotizador | Ecologico Solar";
+	div(style="height: 50px; width:100px;") 
+
+	.content-section-b
+		.container
+			.col-sm-6.col-sm-offset-3
+				h1 Cotizador
+				form
+					.form-group
+						label Nombre *
+						input.form-control(type="text" data-toggle="tooltip" data-placement="top" title="Escribe tu nombre" placeholder="Nombre" required)
+					.form-group
+						label Correo *
+						input.form-control(type="email" placeholder="Correo" required)
+					.form-group
+						label Consumo *
+						.form-inline
+							.form-group
+								.input-group
+									input.form-control(type="number" placeholder="Consumo" required)
+									.input-group-addon KW/hr
+					.form-group
+						label Porcentaje *
+						.form-inline
+							.form-group
+								.input-group
+									input.form-control(type="number" placeholder="Porcentaje" required)
+									.input-group-addon %
+					.form-group
+					.form-group
+						button.btn.btn-info.btn-block Cotizar
