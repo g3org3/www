@@ -7,7 +7,7 @@ module.exports = function(grunt){
 		connect: {
 			server: {
 				options: {
-					port: 9000
+					port: 80
 				}
 			}
 		},
@@ -37,6 +37,6 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-open');
 
 	grunt.registerTask('default', [
-		'connect', 'open', 'watch'
+		'connect', 'watch'
 	])
 }
