@@ -7,7 +7,8 @@ module.exports = function(grunt){
 		connect: {
 			server: {
 				options: {
-					port: 9000
+					port: 9000,
+					base: 'dist'
 				}
 			}
 		},
@@ -15,14 +16,15 @@ module.exports = function(grunt){
 		watch: {
 			files: [
 				'*.html',
-				'js/*.js',
-				'css/*.css',
+				'static/js/*.js',
+				'static/css/*.css',
 				'views/*',
 				'styls/*'
 			],
 			options: {
 				livereload: true
-			}
+			},
+			tasks: ['shell:render']
 		},
 		open : {
 			dev : {
@@ -38,12 +40,15 @@ module.exports = function(grunt){
 				command: [
 					"mkdir dist",
 					"cp -R static/* dist",
-					"cp server/* dist",
-					
+					"cp server/* dist"
+				].join("&&")
+			},
+			render: {
+				command: [
 					"jade -o dist/ views/*.jade --pretty",
 					"rm dist/layout.html",
-					"stylus -u nib -c -o dist/css/ styls/*.styl",
-				].join("&&")
+					"stylus -u nib -c -o dist/css/ styls/*.styl"
+				].join('&&')
 			},
 			zip: {
 				command: "zip -r www.zip dist"
@@ -64,7 +69,7 @@ module.exports = function(grunt){
 	]);
 
 	grunt.registerTask('dist', [
-		'shell:dist', 'shell:zip'
+		'shell:dist', 'shell:render', 'shell:zip'
 	]);
 
 	grunt.registerTask('clean', ['shell:clean']);
