@@ -1,4 +1,7 @@
 .DS_STORE
 *.html
 css/my.css
+dist
+*.zip
+node_modules
 
