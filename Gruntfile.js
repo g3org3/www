@@ -37,22 +37,12 @@ module.exports = function(grunt){
 			dist: {
 				command: [
 					"mkdir dist",
-					"mkdir dist/css",
-					"mkdir dist/img",
-					"mkdir dist/js",
-					"mkdir dist/pdfs",
-					"mkdir dist/fonts",
-					"mkdir dist/font-awesome",
+					"cp -R static/* dist",
+					"cp server/* dist",
+					
 					"jade -o dist/ views/*.jade --pretty",
 					"rm dist/layout.html",
-					"cp -R css dist",
 					"stylus -u nib -c -o dist/css/ styls/*.styl",
-					"cp -R img dist",
-					"cp -R js dist",
-					"cp -R pdfs dist",
-					"cp -R fonts dist",
-					"cp -R font-awesome dist",
-					"cp server/* dist"
 				].join("&&")
 			},
 			zip: {
