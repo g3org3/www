@@ -1,24 +1,31 @@
 extend layout
 block content
 	script document.title = "Contacto | Ecologico Solar";
+	script if($(window).width()>=1200) main();
+	script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js")
+	script(src="js/main.js")
 	div(style="height: 50px; width:100px;") 
-
-	.content-section-b
+	
+	.content-section-b(ng-app="app" ng-controller="sendCtrl")
 		.container
-			.col-sm-6.col-sm-offset-3
+			.col-sm-6.col-sm-offset-3(ng-show="!done")
 				h1 Contacto
-				form
+				form(name="mForm" ng-submit="send()")
 					.form-group
 						label Nombre *
-						input.form-control(type="text" data-toggle="tooltip" data-placement="top" title="Escribe tu nombre" placeholder="Nombre" required)
+						input.form-control(ng-model="mail.name" ng-minlength="3" type="text" data-toggle="tooltip" data-placement="top" title="Escribe tu nombre" placeholder="Nombre" required)
 					.form-group
 						label Telefono *
-						input.form-control(type="number" placeholder="Telefono" required)
+						input.form-control(ng-model="mail.phone" ng-minlength="8" type="number" placeholder="Telefono" required)
 					.form-group
 						label Correo *
-						input.form-control(type="email" placeholder="Correo" required)
+						input.form-control(ng-model="mail.email" type="email" placeholder="Correo" required)
 					.form-group
 						label Consulta o comentario
-						textarea.form-control
+						textarea.form-control(ng-model="mail.comment" required)
 					.form-group
-						button.btn.btn-default.btn-block Enviar
+						button.btn.btn-default.btn-block(ng-disabled="mForm.$invalid") Enviar
+			.col-sm-6.col-sm-offset-3(ng-show="done")
+				h1 En breve un asesor se estara comunicando con usted.
+			pre {{mail | json}}
+			pre {{mForm.$invalid}}
