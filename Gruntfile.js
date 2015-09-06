@@ -26,12 +26,14 @@ module.exports = function(grunt){
 			},
 			tasks: ['shell:render']
 		},
+		
 		open : {
 			dev : {
 				path: 'http://127.0.0.1:9000/',
 				app: 'Google Chrome'
 			}
 		},
+
 		shell: {
 			options: {
 
